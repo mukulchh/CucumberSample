@@ -1,0 +1,78 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-12-10T09:55:29.935Z",
+        "line": 3,
+        "name": "Login Successful",
+        "description": "",
+        "id": "login-test;login-successful",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User has the valid API url",
+            "match": {
+              "location": "com.qa.stepdefinitions.LoginSteps.user_has_the_valid_api_url()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "java.net.SocketException: Socket is closed\r\n\tat sun.security.ssl.SSLSocketImpl.checkEOF(SSLSocketImpl.java:1524)\r\n\tat sun.security.ssl.AppInputStream.read(AppInputStream.java:95)\r\n\tat org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)\r\n\tat org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)\r\n\tat org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:206)\r\n\tat org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)\r\n\tat org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)\r\n\tat sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)\r\n\tat sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)\r\n\tat sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)\r\n\tat java.io.InputStreamReader.read(InputStreamReader.java:184)\r\n\tat java.io.Reader.read(Reader.java:140)\r\n\tat org.apache.http.util.EntityUtils.toString(EntityUtils.java:225)\r\n\tat org.apache.http.util.EntityUtils.toString(EntityUtils.java:306)\r\n\tat com.qa.stepdefinitions.LoginSteps.user_hit_the_api_with_valid_credentials(LoginSteps.java:37)\r\n\tat ✽.User hit the api with valid credentials(classpath:features/login.feature:5)\r\n",
+              "duration": 2346000000,
+              "status": "failed"
+            },
+            "line": 5,
+            "name": "User hit the api with valid credentials",
+            "match": {
+              "location": "com.qa.stepdefinitions.LoginSteps.user_hit_the_api_with_valid_credentials()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "user get the status code as \"200\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"200\"",
+                  "offset": 28
+                }
+              ],
+              "location": "com.qa.stepdefinitions.LoginSteps.user_get_the_status_code_as(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "user get the token in the response",
+            "match": {
+              "location": "com.qa.stepdefinitions.LoginSteps.user_get_the_token_in_the_response()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Login Test",
+    "description": "",
+    "id": "login-test",
+    "keyword": "Feature",
+    "uri": "classpath:features/login.feature",
+    "tags": []
+  }
+]
