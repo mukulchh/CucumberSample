@@ -1,10 +1,17 @@
 package com.qa.stepdefinitions;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
+import java.io.IOException;
 import java.util.Map;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import CucumberApiSampleProject.projectAPI.TestUtils;
 import io.cucumber.java.en.Given;
@@ -45,15 +52,35 @@ public class LoginSteps {
 	@Then("user get the token in the response")
 	public void user_get_the_token_in_the_response() {
 		// get responseBody from responseMap
-		
+		responseMap.get("statusCode");
+		Map<String, String> map = null;
+
 		// Convert the responseBody using ObjectMapper into map
-		
+		ObjectMapper mapper = new ObjectMapper();
+
+		try {
+			map = mapper.readValue(responseMap.get("responseBody"), Map.class);
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// map.get("token")
-		
+		String token = map.get("token");
+
 		// assertions: token not null, token not empty, token length = <length>
-//		assertNotNull(token);
-//		assertFalse(token.isEmpty())
-//		assertEquals(<expected length value in int>, token.length())
+		// assertNotNull(token);
+		// assertFalse(token.isEmpty())
+		// assertEquals(<expected length value in int>, token.length())
+		assertNotNull(token);
+		assertFalse(token.isEmpty());
+		assertEquals(17, token.length());
+		System.out.println(token.length());
 
 	}
 }
